@@ -6,6 +6,8 @@ import { db, firebaseApp } from './firebase';
 import { useDispatch, useSelector } from "react-redux";
 import { setAdditionalData, setUser } from "./actions";
 import Login from './Pages/Login/Login';
+import Home from './Pages/Home/Home';
+import CreatePost from './Pages/CreatePost/CreatePost';
 
 
 
@@ -63,8 +65,9 @@ useEffect(()=>{
   return (
     <div className="App background">
       <BrowserRouter>
+          <Route exact path="/"  render={()=>(<Home user={user} isAdmin={isAdmin} />)} />
           <Route exact path ="/login" component ={Login} />
-          {/* <Route exact path ={`/createpost`} render={()=>(<CreatePost />)} /> */}
+          {user ? <Route exact path={`/createpost`} render={()=>(<CreatePost user={user} isAdmin={isAdmin} />)} />: <div></div> }
       </BrowserRouter>
     </div>
   );
