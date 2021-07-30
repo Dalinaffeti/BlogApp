@@ -8,6 +8,7 @@ import { setAdditionalData, setUser } from "./actions";
 import Login from './Pages/Login/Login';
 import Home from './Pages/Home/Home';
 import CreatePost from './Pages/CreatePost/CreatePost';
+import UserProfile from './Pages/UserProfile/UserProfile';
 
 
 
@@ -68,7 +69,9 @@ useEffect(()=>{
           <Route exact path="/"  render={()=>(<Home user={user} isAdmin={isAdmin} />)} />
           <Route exact path ="/login" component ={Login} />
           {user ? <Route exact path={`/createpost`} render={()=>(<CreatePost user={user} isAdmin={isAdmin} />)} />: <div></div> }
-      </BrowserRouter>
+          {<Route exact path="/userprofile" render={()=>(<UserProfile user={user} additionalData={additionalData} />)} /> }
+          
+ </BrowserRouter>
     </div>
   );
 }

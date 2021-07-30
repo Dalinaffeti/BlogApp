@@ -25,6 +25,10 @@ export default function Home(props) {
     history.push("/createpost");
   };
 
+  const openProfile = () => {
+    history.push("/userprofile");
+  };
+
 
 
  
@@ -101,7 +105,7 @@ export default function Home(props) {
               </h4>
             </Button>
           )}
-
+          {user && <Avatar className="pointer" onClick={openProfile} />}
           
          
         </div>
