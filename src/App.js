@@ -9,6 +9,8 @@ import Login from './Pages/Login/Login';
 import Home from './Pages/Home/Home';
 import CreatePost from './Pages/CreatePost/CreatePost';
 import UserProfile from './Pages/UserProfile/UserProfile';
+import ViewImage from './Pages/ViewImage/ViewImage';
+import ReportImage from './Pages/ReportImage/ReportImage';
 
 
 
@@ -69,9 +71,11 @@ useEffect(()=>{
           <Route exact path="/"  render={()=>(<Home user={user} isAdmin={isAdmin} />)} />
           <Route exact path ="/login" component ={Login} />
           {user ? <Route exact path={`/createpost`} render={()=>(<CreatePost user={user} isAdmin={isAdmin} />)} />: <div></div> }
+          {<Route exact path="/viewimage" render={()=>(<ViewImage user={user}  />)} /> }
+          {<Route exact path="/reportimage" render={()=>(<ReportImage user={user}  />)} /> }
           {<Route exact path="/userprofile" render={()=>(<UserProfile user={user} additionalData={additionalData} />)} /> }
           
- </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }
